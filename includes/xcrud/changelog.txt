@@ -1,0 +1,90 @@
+v.1.6.15 - BLOB file upload fixed.
+	Where() method fixed.
+	Added 'filename' parameter for 'file' type.
+	Duplicate_button() fixed.
+
+v.1.6.14 - Data and pass_var() bug fixed.
+	Date range fixed.
+	'Price' default fixed.
+	Duplicate button fixed.
+
+v.1.6.13 - Search date ranges fixed.
+	BIGINT type casting fixed.
+	Added 'point' parameter in 'price' type.
+	Additional XSS auto-filtering.
+	Grid rendering fixed. New render parameters in configuration file.
+	New method set_attr().
+	Join() bug (on edit) fixed.
+	Negative timestamp issue fixed.
+
+v.1.6.12 - Search dropdowns fixed.
+	Search input's value escaping fixed.
+	Added error message when xcrud's scripts loaded twice.
+	Hidden fields in custom templates fixed.
+	Highlight_row() classname fixed.
+	Google map via https fixed.
+	Completed before_update, after_update and after_resize callbacks.
+	Load_css() and load_js() methods improved. Now paths works propertly with $manual_load.
+	New WordPress plugin! Now plugin automatically includes xcrud's styles and scripts in wp_head() and wp_footer().
+	Password bug (no encryption) fixed.
+	DATE(TIME) MANIPULATIONS(CALLBACKS AND PASS_VAR()) SWITCHED BACK TO MYSQL FORMAT!!!
+	Postdata items got new methods as_date(), as_time() and as_datetime(). THis will help you to receive dates from $postdata object.
+	Printout(short tag) fixed.
+	Fixed some typos in documentation.
+	Many-to-many relation are available now. See fk_relation() method.
+
+v.1.6.11 - Subselect() label fixed.
+	Dependent dropdowns (multi) fixed.
+	Editor loading fixed.
+
+v.1.6.10 - File upload fixed.
+	Column_pattern() final fix :)
+
+v.1.6.9 - Bit field casting fixed.
+	Image removing fixed.
+	Dependency fixed.
+	Columns reverse fixed.
+	Default_tab() fixed.
+	Column_pattern() fixed.
+
+v1.6.8 - String '0' bug fixed.
+	Password type bug fuxed.
+	Checkbox fixed.
+
+v.1.6.7 - Fixed some internal bugs.
+	RTL rendering, can be enabled in configuration file.
+
+v.1.6.6 - Now you can use xCRUD as simple datagrid with custom sql query. See more in documentation.
+	Condition() method fixed.
+	Read-only, if primary not exist.
+	Column_callback() and column_pattern() in detail view.
+
+v1.6.5 - Default_tab() method and $default_tab option added.
+	Nested table will be displayed in tab if you use tabs.
+	Some fixes in result html.
+	Added prefix support for table names.
+	"Unique checking" bug fixed.
+	Joomla 3.2 integration plugin.
+
+v.1.6.4 - Automatic url detection fixed.
+	Map fixed.
+	Minor changes in js events.
+	New method set_exception() is available in callback functions.
+	Validation now is check data on server side too.
+	$postdata variable is object now in callbacks. Check your custom functions.
+	JS alerts replaced with message bars.
+
+v.1.6.3 - Unset_edit() condition fixed.
+	Links_label() fixed.
+	Changes in upload sheme.
+	Classname parameter in sum() method fixed.
+	Added codegniter integration examples.
+
+v.1.6.2 - Urgent bugfix: image uploads.
+	Printout return fixed.
+	Some improvement of compatibility with frameworks.
+
+v.1.6.1 - Nested table CKEditor bug fixed
+	Column callback csv fixed
+
+v.1.6.0 - First release. From this moment v1.5 is deprecated.

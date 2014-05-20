@@ -1,0 +1,4 @@
+/Logs/*
+/vendor/*
+/.idea/*
+.DS_Store

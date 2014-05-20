@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<title>xCRUD - Data Management and extended PHP CRUD</title>
+    <meta name="description" content="Powerfull and simple CRUD library for php and mysql. Customizable datagrid, ajax driven, very first and flexible php scaffold and really extended CRUD. Xcrud allows you to create great create-read-update-delete interface in minutes. Auto-types for fields, visual editors support, files and images uploading, resizing and cropping, date and time pickers, custom date formats, localizations, relations between tables and joins, validation, tooltips, modals and many-many more" />
+    <meta name="keywords" content="crud, data managament, php crud, php mysql crud, php scaffold, crud generator, php datagrid, ajax crud, php ajax datagrid, php ajax crud, mysql datagrid php" />
+<style type="text/css">
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    line-height: 1.25;
+}
+h1{
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+h1 small{
+    font-size: 18px;
+    display: block;
+}
+.logo-line{
+    height: 135px;
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+    border-top: 2px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+.logo-inner{
+    width: 720px;
+    margin: 0 auto;
+    padding: 10px 0 0;
+}
+.logo{
+    background: 0 0 transparent no-repeat url(xCRUD-w.png);
+    height: 100px;
+    width: 214px;
+    float: left;
+    margin: 6px 25px 0 0;
+}
+.maincontent{
+    width: 720px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+h3{
+    font-size: 24px;
+    font-weight: normal;
+    color: #888;
+    margin: 20px 0 10px;
+}
+ul{
+    list-style-type: circle;
+    list-style-position: outside;
+    margin: 0 0 20px;
+    padding: 0 0 0 30px;
+}
+ul > li{
+    margin: 0 0 10px;
+}
+pre{
+    margin: 3px 0;
+    font-size: 110%;
+    background: #f5f5f5;
+    color: #555;
+    padding: 1px 10px;
+    border-left: 2px solid #555;
+}
+.buttons-wrap{
+    padding: 30px 0;
+    background: #f0f0f0;
+    border-top: 2px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+.buttons{
+    width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+.button-link{
+    display: inline-block;
+    border-radius: 2px;
+    padding: 15px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    text-align: center;
+    width: 45%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.view-demo:hover,.view-demo:active{
+    background: #2D2B27;
+    text-shadow: 0 0 5px rgba(255,255,255,0.7);
+}
+.buy-now:hover,.buy-now:active{
+    background: /*#007739*/#1A844F;
+    text-shadow: 0 0 5px rgba(255,255,255,0.7);
+}
+.read-docs:hover,.read-docs:active{
+    background: #858585;
+    text-shadow: 0 0 5px rgba(255,255,255,0.7);
+}
+.button-link small{
+    font-size: 14px;
+    display: block;
+}
+.view-demo{
+    background: #48443E;
+}
+.buy-now{
+    background: #1D9559;
+}
+.read-docs{
+    background: #999;
+}
+p{
+    margin: 0 0 10px 30px;
+}
+p.row0{
+    margin: 0 0 20px;
+    padding: 0 0 0 15px;
+    border-left: 2px solid #7A746A;
+}
+p.row1{
+    margin: 0 0 20px;
+    padding: 0 0 0 15px;
+    border-left: 2px solid #57A57A;
+}
+.top-buttons{
+    padding: 8px 15px;
+    margin-top: 15px;
+    display: inline-block;
+    border-radius: 1px;
+    color: #fff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    position: relative;
+    text-decoration: none;
+}
+.top-buttons.buy-now{
+    padding-left: 60px;
+}
+.top-buttons span{
+    display: block;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 45px;
+    text-align: center;
+    position: absolute;
+    padding-top: 8px;
+    font-weight: bold;
+    background: #01541A;
+    border-radius: 1px 0 0 1px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.top-buttons:hover span{
+    background: #013D13;
+}
+</style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="logo-line">
+            <div class="logo-inner">
+                <div class="logo"></div>
+                <h1>Data management system <small>extended php CRUD library</small></h1>
+                <a href="http://codecanyon.net/item/xcrud-data-management-system-php-crud/3215400" class="top-buttons buy-now"><span>$11</span>Buy now</a>
+                <a href="http://xcrud.com/demos" class="top-buttons view-demo">Try demo</a>
+                <a href="http://xcrud.com/documentation/index.html" class="top-buttons read-docs">Read documentation</a>
+            </div>
+        </div>
+        
+        <div class="maincontent">
+            
+            <div class="maintext">
+                <h3>What is this?</h3>
+                <p>xCRUD – is a simple-usage but powerfull Create-Read-Update-Delete (CRUD) generator application for PHP and MySQL. The application offers you many ways to work with your data and scaffolding, while remaining very easy to use even for non-programmers. Content management becomes simple and flexible, hours of saved time, minutes to implement. You can use it as plain php library or with your favorite framework and cms.</p>
+            </div>
+            <h3>What it can?</h3>
+            <ul>
+                <li>
+                Single-line syntax for more convenience, it's very simple:
+                <pre>echo Xcrud::get_instance()->table('products');</pre>
+                </li>
+                <li>
+                Multi-instance system, which allows on a single page to load multiple xCRUD instances and to work with multiple tables simultaneously.
+                </li>
+                <li>
+                The fast ajax interface (powered by jQuery) for all of your actions, you do not need to wait for page reloading and loading unneeded modules, you get access to the data almost immediately.
+                </li>
+                <li>
+                Great compatibility and easy integration in any script, framework or CMS.
+                </li>
+                <li>
+                Supports all popular types of fields mySQL, date- and time-picker for date fields, drop-down lists for ENUM and SET fields, WYSIWYG editors for textareas, maps for POINT.
+                </li>
+                <li>
+                Simple validation rules, unique fields check.
+                </li>
+                <li>
+                Control over your data through the callback functions.
+                </li>
+                <li>
+                Control displayed fields and columns, turn off the main actions, search, export to CSV is also present. Lot of features for grid customization.
+                </li>
+                <li>
+                One small css file to completely change the look of xCRUD's datagrid.
+                </li>
+                <li>
+                Supporting file and image uploading, unlimited thumbs creation and resizing. Blob storage is also available.
+                </li>
+                <li>
+                Table joining, subselects, relations.
+                </li>
+                <li>
+                Simple plugin for easy wordpress integration.
+                </li>
+                <li>
+                Bootstrap compatible.
+                </li>
+                <li>
+                Support via comments and email.
+                </li>
+            </ul>
+        </div>
+        <div class="buttons-wrap">
+            <div class="buttons">
+                <a class="view-demo button-link" href="http://xcrud.com/demos">
+                    <small>How it looks?</small>
+                    SEE DEMO
+                    <small>and try online!</small>
+                </a>
+                <a class="buy-now button-link" href="http://codecanyon.net/item/xcrud-data-management-system-php-crud/3215400">
+                    <small>Just only $11</small>
+                    BY NOW
+                    <small>on CodeCanyon</small>
+                </a>
+            </div>
+        </div>
+        <div class="maincontent">
+            <div class="subdescr">
+                <h3>Why xCRUD?</h3>
+                <p class="row0">
+                	xCRUD implements Singleton pattern, so it can be initialized in any part of the script as desired. It will not appear on the performance, because you will always work with a single original object xCRUD. You can pre-set parameters and output data in different parts of your script: in different functions, classes, or even in different files. This way, you can create custom settings for your specific set xCRUD (first, read the configuration file, most of the default settings can be done there).</p>
+                <p class="row1">
+                	xCRUD implements multi-instance system, which allows a single page load multiple instances xCRUD and work with multiple tables simultaneously. Regardless on how many copies, xCRUD open only one connection to your database, which is also significantly improves performance gains.</p>
+                <p class="row0">
+                	You can connect every instance to different database and work not only with different tables on the page, but also with multiple databases even on one page.</p>
+                <p class="row1">
+                	The application uses a fast ajax interface for all of your actions, you do not need to wait for page reloading and loading unneeded modules, you get access to the data almost immediately.</p>
+                <p class="row0">
+                	xCRUD uses native php session. For each request, each instance is generating unique validation key that becomes invalid immediately after usage, which ensures a secure, as well as ease and independence ajax-side of the application. Also you can use experimental alternative session, but for this you need mcrypt and memcache(d) modules installed on your server.</p>
+                <p class="row1">
+                	xCRUD supports all popular types of MySQL fields. Also, you can control the display of your fields, establish simple validation rules. xCRUD enables working with visual editor for text fields, date- and time-picker for date fields, automatically generates a drop-down lists for the fields of ENUM and SET. xCRUD will generate interactive google map for POINT type.</p>
+                <p class="row0">
+                	You can use any text editor for textarea field. xCRUD has preinstalled configs for TinyMCE and CKEditor.</p>
+                <p class="row1">
+                	xCRUD supports file and image uploading, unlimited thumbs creation and resizing. Blob storage is also available.</p>
+                <p class="row0">
+                	xCRUD provides control over your data. You can change the data directly to the entry through the callback function, and get the data immediately after writing to the database (eg for password hashing or creation (updating) data in other tables. You can create callbacks for most general actions.</p>
+                <p class="row1">
+                	You can completely change the look xCRUD, editing just one small css file. You can easy create your own themes or just different screens (templates) for some actions in same template.</p>
+                <p class="row0">
+                	xCRUD supports localization via ini files, so you can easy create your unique language file.</p>
+            </div>
+        </div>
+        <div class="buttons-wrap">
+            <div class="buttons">
+                <a class="view-demo button-link" href="http://xcrud.com/demos">
+                    <small>How it looks?</small>
+                    SEE DEMO
+                    <small>and try online!</small>
+                </a>
+                <a class="buy-now button-link" href="http://codecanyon.net/item/xcrud-data-management-system-php-crud/3215400">
+                    <small>Just only $11</small>
+                    BY NOW
+                    <small>on CodeCanyon</small>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
