@@ -17,8 +17,8 @@ class AxlRisApi {
             array('trace'=>true,
                 'exceptions'=>true,
                 'location'=>'https://' . $ip . ':8443/realtimeservice/services/RisPort',
-                'login'=>'admin',
-                'password'=>'ci5co123',
+                'login'=>'sloanma',
+                'password'=>'$l0whanD58',
             ));
     }
 
@@ -53,7 +53,13 @@ class AxlRisApi {
 
         if ($SelectCmDeviceResult->TotalDevicesFound = 1) {
 
-            return $SelectCmDeviceResult->CmNodes[0]->CmDevices[0]->IpAddress;
+            foreach ($SelectCmDeviceResult->CmNodes as $i)
+            {
+                if ($i->ReturnCode == "Ok")
+                {
+                    return $i->CmDevices[0]->IpAddress;
+                }
+            }
 
         } else { return false; }
     }
