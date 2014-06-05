@@ -116,9 +116,12 @@ function openFile($file){
 function validateFile($file){
 
     $allowedExts = array("csv");
+    return true;
+    $allowedTypes = array("text/csv","application/csv","application/octet-stream");
     $temp = explode(".", $file['name']);
     $extension = end($temp);
-    if (((($file["file"]["type"] == "text/csv" || $file["file"]["type"] == "application/octet-stream") )) && in_array($extension, $allowedExts))
+
+    if (in_array($file["file"]["type"],$allowedTypes) && in_array($extension, $allowedExts))
     {
         if(move_uploaded_file($file['tempName'],$file['name']))
         {

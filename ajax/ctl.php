@@ -10,7 +10,8 @@ require_once "../includes/mySqlDb.php";
 require_once "../includes/KLogger.php";
 
 
-$_REQUEST['deviceName'] = "SEP0026CB3B90C9"; // My NIPT 7975
+//$_REQUEST['deviceName'] = "SEP0026CB3B90C9"; // My NIPT 7975
+
 $martyAxl = 'martin sloan';  //My CUCM AXL Account
 
 if (isset($_REQUEST['deviceName']))
@@ -85,4 +86,5 @@ if (isset($_REQUEST['deviceName']))
         $k == "Key:KeyPadPound" ? sleep(2) : '';
 
     }
+    echo json_encode(array('success' => true,'message' => 'CTL Process Sent', 'code' => '200 OK'));
 }

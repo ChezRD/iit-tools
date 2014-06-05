@@ -43,18 +43,22 @@
                         <th>Message</th>
                         <th>Code</th>
                         </thead>
-                        <?php $csv = processCsv($_FILES); ?>
-                        <?php foreach ($csv as $row): ?>
-                            <?php if ($row == ''): ?>
-                                <? continue; ?>
-                            <?php endif ?>
-                            <tr class="requestRowDescription">
-                                <td class="device"><?php echo "$row[0]"; ?></td>
-                                <td class="status"></td>
-                                <td class="message"></td>
-                                <td class="code"></td>
-                            </tr>
-                        <?php endforeach ?>
+                        <?php if($csv = processCsv($_FILES)): ?>
+                            <?php foreach ($csv as $row): ?>
+                                <?php if ($row == ''): ?>
+                                    <? continue; ?>
+                                <?php endif ?>
+                                <tr class="requestRow">
+                                    <td class="device"><?php echo "$row[0]"; ?></td>
+                                    <td class="status"></td>
+                                    <td class="message"></td>
+                                    <td class="code"></td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php else: ?>
+                        <h2 class="text-center text-primary">Error Loading File!</h2>
+                        <a href="ctl.php">Go Back</a>
+                        <?php endif ?>
                     </table>
                 <?php else: ?>
                     <h2 class="text-center text-primary">No File Selected</h2>
