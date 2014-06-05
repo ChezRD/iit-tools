@@ -24,8 +24,8 @@ class IpPhoneApi {
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/xml'));
         curl_setopt($ch, CURLOPT_POST, true);
         //curl_setopt($ch, CURLOPT_VERBOSE, true);
-        //curl_setopt($ch, CURLOPT_USERPWD, 'risadmin' . ":" . 'ci5co123');
-        curl_setopt($ch, CURLOPT_USERPWD, 'sloanma' . ":" . '$l0whanD58');
+        //curl_setopt($ch, CURLOPT_USERPWD, 'risadmin' . ":" . 'ci5co123'); //Home Lab
+        curl_setopt($ch, CURLOPT_USERPWD, 'martin sloan' . ":" . '$l0whanD58');  // NIPT
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
@@ -38,12 +38,12 @@ class IpPhoneApi {
     {
 
         $xml = 'XML=<CiscoIPPhoneExecute><ExecuteItem URL="Dial:' . $pattern . '"/></CiscoIPPhoneExecute>';
-        var_dump($xml);
         $ch = curl_init('http://' . $ip . '/CGI/Execute');
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/xml'));
         curl_setopt($ch, CURLOPT_POST, true);
         //curl_setopt($ch, CURLOPT_VERBOSE, true);
-        curl_setopt($ch, CURLOPT_USERPWD, 'risadmin' . ":" . 'ci5co123');
+        //curl_setopt($ch, CURLOPT_USERPWD, 'risadmin' . ":" . 'ci5co123'); //Home Lab
+        curl_setopt($ch, CURLOPT_USERPWD, 'martin sloan' . ":" . '$l0whanD58');  //NIPT
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);

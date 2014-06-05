@@ -5,17 +5,20 @@
 
 <!-- Custom page content -->
 
-<div class="row top-margin-index">
-    <div class="col-md-7 col-md-offset-2 text-right top-margin-index-logo center-block">
-        <div class="row">
-            <h1 class="text-primary font-large">World Bank Group</h1>
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="jumbotron text-center">
+            <div class="row ">
+                <div class="col-md-2 col-md-offset-5 ">
+                    <img class="img-responsive center-block img-circle" src="/img/usc-logo.jpeg">
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-6 col-md-offset-3">
+                    <h2 class="lead text-center center-block"><span class="blue">UC</span> Administration Tools</h2>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <h4 class="text-danger">IPT Provisioning</h4>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <img class="img-responsive img-circle" src="/img/index.jpeg">
     </div>
 </div>
 

@@ -17,7 +17,7 @@ class AxlRisApi {
             array('trace'=>true,
                 'exceptions'=>true,
                 'location'=>'https://' . $ip . ':8443/realtimeservice/services/RisPort',
-                'login'=>'sloanma',
+                'login'=>'martin sloan',
                 'password'=>'$l0whanD58',
             ));
     }
@@ -55,7 +55,40 @@ class AxlRisApi {
 
             foreach ($SelectCmDeviceResult->CmNodes as $i)
             {
-                if ($i->ReturnCode == "Ok")
+                if ($i->CmDevices[0]->Status == "Registered")
+                {
+                    return $i->CmDevices[0]->IpAddress;
+                }
+            }
+
+        } else { return false; }
+    }
+
+    public function getDeviceIpBulk($phones)
+    {
+
+        $CmSelectionCriteria = array('MaxReturnedDevices'=>'1',
+            'Class'=>'Phone',
+            'Model'=>'255',
+            'Status'=>'Registered',
+            'NodeName'=>'',
+            'SelectBy'=>'Name',
+            'SelectItems'=> $phones);
+
+        try {
+
+            $response = $this->_client->SelectCmDevice('',$CmSelectionCriteria);
+
+            //var_dump($response); print "\n\n\n";
+        } catch (SoapFault $E) { return $this->SoapError($E); }
+
+        $SelectCmDeviceResult = $response["SelectCmDeviceResult"];
+
+        if ($SelectCmDeviceResult->TotalDevicesFound = 1) {
+
+            foreach ($SelectCmDeviceResult->CmNodes as $i)
+            {
+                if ($i->CmDevices[0]->Status == "Registered")
                 {
                     return $i->CmDevices[0]->IpAddress;
                 }

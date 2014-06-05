@@ -9,28 +9,27 @@ require_once "../includes/mySqlDb.php";
 require_once "../includes/KLogger.php";
 
 
-//$_REQUEST['phone'] = "SEP0026CBBEAF4D";
-$_REQUEST['phone'] = "SEP0026CB3B90C9";
+$_REQUEST['deviceName'] = "SEP0026CB3B90C9"; // My NIPT 7975
 
-if (isset($_REQUEST['phone']))
+if (isset($_REQUEST['deviceName']))
 {
     /*
      * Sanitize data
      */
-    $phone = clean($_REQUEST['phone']);
+    $phone = clean($_REQUEST['deviceName']);
 
     /*
      * Instantiate Objects
      */
-    $risClient = new AxlRisApi('192.168.1.120');
+    $risClient = new AxlRisApi('10.179.168.10');
     $klogger = new KLogger("../Logs/Dialer/$phone",KLogger::DEBUG);
     $mySql = database::MySqlConnection();
 
     /*
      * Get the IP of the phone we're going to dial
      */
-    //$ip = $risClient->getDeviceIp($phone);
-    $ip = "10.132.219.89";
+    $ip = getDeviceIp($phone,$risClient,$klogger);
+    //$ip = "10.132.219.89";
     $klogger->logInfo("IP for $phone", $ip);
 
     /*
@@ -52,18 +51,18 @@ if (isset($_REQUEST['phone']))
     /*
      * Iterate patterns
      */
-    /*
+
     foreach ($testPlan as $pattern)
     {
         $res = IpPhoneApi::dial($ip,$pattern['pattern']);
         $klogger->logInfo("Dial Results", $res);
 
         sleep(5);
-        $res = IpPhoneApi::keyPress($ip,"Speaker");
+        $res = IpPhoneApi::keyPress($ip,"Key:Speaker");
         $klogger->logInfo("End Call Results", $res);
     }
-    */
 
+    /*
     foreach ($testPlan as $pattern)
     {
         $res = IpPhoneApi::keyPress($ip,"Key:Speaker");
@@ -78,4 +77,5 @@ if (isset($_REQUEST['phone']))
 
         $res = IpPhoneApi::keyPress($ip,"Key:Speaker");
     }
+    */
 }

@@ -45,8 +45,12 @@ a.inherit-color { color: inherit; }
 
 td.hide { display: none; }
 
-/* Bootstrap Style */
+.jumbotron { background-color: #EEEEEE; }
 
+.blue { color: dodgerblue; }
+
+
+/* Bootstrap Style */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;

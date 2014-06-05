@@ -1,10 +1,10 @@
 <?php
 
-require_once "AxlClass.php";
+require_once "AoCucmAxl.php";
 
-$axl = new AxlClass('192.168.158.10','8443');
+$axl = new AoCucmAxl('192.168.158.10','8443');
 
-$results = $axl->getPhone('SEP123456789123');
+$results = $axl->executeSql('query','SELECT name FROM device WHERE tkmodel = 437');
 
 //print_r("Request:\n");
 //var_dump($axl->_client->__getLastRequest());

@@ -11,7 +11,7 @@ and open the template in the editor.
 -->
 <html>
 <head>
-    <title>WBG Provisioning</title>
+    <title>UC Admin Tools</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="/css/bootstrap-hover-menu.css" rel="stylesheet" media="screen">
@@ -31,10 +31,9 @@ and open the template in the editor.
                 <ul class="nav navbar-nav">
                     <?php if ($_SESSION['role'] == '1'): ?>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle <?php echo preg_match('/jabber/i', basename($_SERVER['SCRIPT_FILENAME'])) ? 'active': '';?>"><span class="glyphicon glyphicon-phone-alt right-margin-glyph"></span>Dialplan Tester</a>
+                        <a href="javascript:void(0)" class="dropdown-toggle <?php echo preg_match('/ctl/i', basename($_SERVER['SCRIPT_FILENAME'])) ? 'active': '';?>"><span class="glyphicon glyphicon-phone-alt right-margin-glyph"></span>CTL Remover</a>
                         <ul class="dropdown-menu">
-                            <li><a href="findPhones.php"><span class="glyphicon"></span>Find Phones</a></li>
-                            <li><a href="testPhones.php"><span class="glyphicon"></span>Test Phones</a></li>
+                            <li><a href="ctl.php"><span class="glyphicon"></span>Load Phones</a></li>
                             <li><a href="reportPhones.php"><span class="glyphicon"></span>Report Phones</a></li>
                         </ul>
                     </li>

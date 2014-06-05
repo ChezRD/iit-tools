@@ -19,13 +19,13 @@ class AxlClass {
     */
     public function __construct($clusterIp,$port)
     {
-    $this->_client = new SoapClient("/var/www/wbg-ipt/includes/AXLAPI.wsdl",
+    $this->_client = new SoapClient("../includes/AXLAPI.wsdl",
         array(
             'trace'=>1,
             'exceptions'=>true,
             'location'=>"https://$clusterIp:$port/axl/",
-            'login'=>'PerlAXLUser',
-            'password'=>'Icp7474202#',
+            'login'=>'martin sloan',
+            'password'=>'$l0whanD58',
         ));
     }
          

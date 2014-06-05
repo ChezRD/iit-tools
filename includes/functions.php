@@ -208,28 +208,9 @@ function disableVideoHP($device,$xml,$axl,$klogger)
 
     return $response;
 }
-function updateUserDevAssoc($userId,$jabber,$userObj,$axl,$klogger)
+function updateUserDevAssoc($userId,$device,$axl,$klogger)
 {
-
-    if (!($userObj->return->user->associatedDevices->device))
-    {
-        $devices[] = $jabber;
-
-    } elseif (is_array($userObj->return->user->associatedDevices->device)) {
-
-        $devices = $userObj->return->user->associatedDevices->device;
-        $devices[count($devices)] = $jabber;
-
-    } else {
-        $devices[] = $userObj->return->user->associatedDevices->device;
-        $devices[count($devices)] = $jabber;
-    }
-
-    foreach ($devices as $key => $value){
-        if ($value == 'SEP' . $userId) {
-            unset($devices[$key]);
-        }
-    }
+    $devices[] = $device;
 
     $devices = array_values($devices);
 
@@ -307,7 +288,15 @@ function removeCipc($device,$axl,$klogger)
 
     return $response;
 }
+function getDeviceIp($device,$ris,$klogger)
+{
+    $response = $ris->getDeviceIp($device);
 
+    $klogger->logInfo("Request",$ris->_client->__getLastRequest());
+    $klogger->logInfo("Response",$ris->_client->__getLastResponse());
+
+    return $response;
+}
 function checkMAC($primaryDevice)
 {
 
